@@ -2,7 +2,6 @@ let primaryDataList;
 let displayedDataList;
 let allData;
 let iterator = 0;
-let bottomReached = false;
 
 const list = document.getElementById('list');
 const searchInput = document.getElementById('search');
@@ -263,13 +262,14 @@ window.onload = () => {
 
 window.onscroll = function () {
 
-    debugger;
     let scrollTop = document.documentElement.scrollTop;
     let windowHeight = window.innerHeight;
     let bodyHeight = document.documentElement.offsetHeight - windowHeight;
     let scrollPercentage = (scrollTop / bodyHeight);
 
-    if (scrollPercentage >= 0.999 && primaryDataList !== undefined && !bottomReached) {
+    if (scrollPercentage >= 0.999 && primaryDataList !== undefined && (iterator * 10 < displayedDataList.length)) {
+
+        debugger;
 
         //make reset button visible
         buttonReset.className = "";

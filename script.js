@@ -116,6 +116,8 @@ function sortByTag() {
                     return b.milliseconds - a.milliseconds;
                 case "increase":
                     return a.milliseconds - b.milliseconds;
+                default:
+                    return b.milliseconds - a.milliseconds;
             }
         }
 

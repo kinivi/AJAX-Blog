@@ -60,7 +60,9 @@ function deletePost() {
 
 //Function that help sorting by date
 function sortByDate() {
-    debugger;
+
+    //clear tag input
+    sortByTagInput.value = "";
 
     let value = sortByDateInput.value;
 

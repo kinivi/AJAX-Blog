@@ -14,7 +14,6 @@ const buttonReset = document.getElementById('reset');
 
 //adding filtered nodes to page
 function addFilteredData(key) {
-    debugger;
     displayedDataList = primaryDataList.filter(function (post) {
         console.log(key);
         return post.title.includes(key);
@@ -37,7 +36,6 @@ function removeList() {
 
 //Delete post from Node and local Data
 function deletePost() {
-    debugger;
 
     let deletedPost = this.parentNode.parentNode.parentNode;
     let id = deletedPost.id;
@@ -91,7 +89,6 @@ function sortByDate() {
 
 //function that helps sorting by tag(s)
 function sortByTag() {
-    debugger;
     searchInput.value = "";
 
     let tags = sortByTagInput.value.split(" ");
@@ -125,7 +122,6 @@ function sortByTag() {
         return countOfTagsB - countOfTagsA;
     });
 
-    debugger;
 
     removeList();
     iterator = 0;
@@ -156,7 +152,6 @@ function reset() {
 
 //Adding nodes to page
 function addData(dataList, count) {
-    debugger;
 
     for (let i = iterator * 10; i < iterator * 10 + count; i++) {
         let title = dataList[i].title;
@@ -203,7 +198,6 @@ window.onload = () => {
     //Fetch data from json
     fetch('https://api.myjson.com/bins/152f9j')
         .then(response => {
-            debugger;
             response.json().then(data => {
                 return data.data;
             }).then(dataList => {
@@ -247,7 +241,6 @@ window.onload = () => {
     //Add listeners
 
     searchInput.onkeyup = function (e) {
-        console.log(searchInput.value);
         iterator = 0;
         addFilteredData(searchInput.value, 10);
     };
@@ -269,7 +262,6 @@ window.onscroll = function () {
 
     if (scrollPercentage >= 0.999 && primaryDataList !== undefined && (iterator * 10 < displayedDataList.length)) {
 
-        debugger;
 
         //make reset button visible
         buttonReset.className = "";
